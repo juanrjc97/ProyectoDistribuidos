@@ -30,6 +30,5 @@ urlpatterns = [
     path('puntoRecoleccion/<str:pk>/', views.PuntoRecoleccionDetalle.as_view()),
     path('horarioRecoleccion/', views.HorarioRecoleccionList.as_view()),
     path('horarioRecoleccion/<str:pk>/', views.HorarioRecoleccionDetalle.as_view()),
-
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)

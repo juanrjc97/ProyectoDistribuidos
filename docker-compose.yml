@@ -1,0 +1,31 @@
+version: '3'
+services:
+  proxy:
+    build: proxy
+    depends_on:
+      - python
+      - pythonrep1
+      - pythonrep2
+    ports:
+      - "80:80"
+  python:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+    - .:/backendApp
+    ports:
+    - "8000:8000"
+  pythonrep1:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8001
+    volumes:
+      - .:/backendApp
+    ports:
+      - "8001:8001"
+  pythonrep2:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8002
+    volumes:
+      - .:/backendApp
+    ports:
+      - "8002:8002"
